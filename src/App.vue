@@ -1,32 +1,39 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view />
+    <AppTabBar v-if="$route.meta.isShowTabbar"/>
   </div>
 </template>
 
-<style>
+<script>
+import AppTabBar from "@/components/AppTabBar"
+export default {
+    components:{
+      AppTabBar
+    }
+}
+</script>
+<style lang="less">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  background-color: #efefef;
+  min-height: 100%;
+  font-size: 0.14rem;
+}
+html,
+body {
+  height: 100%;
+}
+//   rem 相对单位    相对于根标签html
+html {
+  font-size: 100px!important;
 }
 
-#nav {
-  padding: 30px;
+p{
+  // 字体大小16px??
+  font-size: 0.16rem;      //  ???rem = 16     ??? = 16/rem = 16/100 = 0.16;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
